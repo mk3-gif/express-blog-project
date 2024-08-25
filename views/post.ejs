@@ -1,0 +1,33 @@
+<%- include("header.ejs") %>
+
+<h3 class="w3-center">Create New Post</h3>
+<% if (locals.messages && locals.messages.length > 0) { %>
+  <script>
+      // <%# locals.messages.forEach ((message ) => { %>
+      //     alert("<%# message %>");
+      // <%# }) %>
+      window.onload = function() {
+                <% locals.messages.forEach((message) => { %>
+                    alert("<%= message %>");
+                <% }) %>
+            };
+  </script>
+<% } %>
+<hr>
+
+<form action="/posts" method="POST">
+  <div class="w3-section">
+    <label for="title">Title:</label>
+    <input class="w3-input w3-border" type="text" required name="title">
+  </div>
+  <div class="w3-section">
+    <label for="content">Content:</label>
+    <textarea class="w3-input w3-border" type="text" required name="content"></textarea>
+  </div>
+ 
+  
+  <button type="submit" class="w3-button w3-block w3-dark-grey">Create</button>
+</form><br>
+
+
+<%- include("footer.ejs") %>
